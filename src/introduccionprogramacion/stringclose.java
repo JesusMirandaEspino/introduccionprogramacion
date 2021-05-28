@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class stringclose {
 	
+	static Boolean valor = true;
+	
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {    
 		
@@ -23,6 +25,12 @@ public class stringclose {
 				// System.out.println(  "si tiene llaves" );
 				
 				cerrarllaves( cadena );
+				
+				
+				
+				if( valor  ) {
+					System.out.println("La cadena es valida");
+				}
 				
 			}else{
 				
@@ -86,9 +94,19 @@ public class stringclose {
 			
 			nuevacadena = cadenatemp + cerrarchar;
 			
+			
+			System.out.println( "+++++++++++++++++++++++++++" );
+			System.out.println("La cadena ingresada no es valida");
+			System.out.println( "+++++++++++++++++++++++++++" );
+			
+			
+			System.out.println( "Posible solucion"  );
+			
 			System.out.println( nuevacadena  );
 			
-			System.out.println(  "Se agregaron la cantidad " +  diferencia +  "  de llave(s) de }" );
+			System.out.println(  "Se deben agregar la cantidad " +  diferencia +  "  de llave(s) de }" );
+			
+			valor = false;
 			
 		}
 		
@@ -103,9 +121,17 @@ public class stringclose {
 				
 			}
 			
-			nuevacadena = abrirchar + cadenatemp;	
+			nuevacadena = abrirchar + cadenatemp;
+			
+			System.out.println( "+++++++++++++++++++++++++++" );
+			System.out.println("La cadena ingresada no es valida");
+			System.out.println( "+++++++++++++++++++++++++++" );
+			
+			System.out.println( "Posible solucion"  );
 			System.out.println( nuevacadena  );
-			System.out.println(  "Se agregaron la cantidad " +  diferencia  +  "  de llave(s) de { " );
+			System.out.println(  "Se deben agregar la cantidad " +  diferencia  +  "  de llave(s) de { " );
+		
+			valor = false;
 			
 		}
 		

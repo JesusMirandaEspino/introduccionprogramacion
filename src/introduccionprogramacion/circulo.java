@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class circulo {
 	
+	// desconozco porque se pone float entre parentesis, al autocompleado lo hizo. pero funciona
 	static Float pi = (float) 3.1416; 
 	
 	

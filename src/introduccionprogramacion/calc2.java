@@ -4,15 +4,17 @@ import java.util.Scanner;
 
 public class calc2 {
 
+@SuppressWarnings("resource")
 public static void main(String[] args) {      
     	
 	boolean salir;
 	
 	do {
 		
-		Scanner entradaseleccion, entradanum1, entradanum2;
+		float[] numerosOperacion = new float[2];
+    	Scanner entradaseleccion;
     	int seleccion;
-    	float num1, num2, num3, num4;
+    	float num3;
     	
     	salir = false;
 
@@ -22,8 +24,8 @@ public static void main(String[] args) {
         System.out.println("3.- Multiplicacion \n");
         System.out.println("4.- Division \n");
         System.out.println("5.- Salir \n");
-        
-        System.out.println("Ingresa valor");
+        System.out.print("********************************* \n");
+        System.out.println("Selecciona una opcion");
         entradaseleccion = new Scanner (System.in);
         seleccion = Integer.parseInt( entradaseleccion.nextLine() );
                       
@@ -34,16 +36,9 @@ public static void main(String[] args) {
         	case 1: 
         		
         		System.out.println("Suma \n");
+        		numerosOperacion = ingresarnumeros( );
         		
-        		System.out.println("Ingrese el primer numero \n");
-        		entradanum1 = new Scanner (System.in);
-        		num1 = Integer.parseInt( entradanum1.nextLine() );
-        		
-        		System.out.println("Ingrese el segundo numero \n");
-        		entradanum2 = new Scanner (System.in);
-        		num2 = Integer.parseInt( entradanum2.nextLine() );
-        		
-        		num3 = num1 + num2;
+        		num3 = numerosOperacion[0] + numerosOperacion[1];
         		
         		System.out.println("La suma de los numeros es " +  num3  +  " \n");
         		posneg(  num3 );
@@ -54,16 +49,9 @@ public static void main(String[] args) {
         	case 2: 
         		
         		System.out.println("Resta \n");
+        		numerosOperacion = ingresarnumeros( );
         		
-        		System.out.println("Ingrese el primer numero \n");
-        		entradanum1 = new Scanner (System.in);
-        		num1 = Integer.parseInt( entradanum1.nextLine() );
-        		
-        		System.out.println("Ingrese el segundo numero \n");
-        		entradanum2 = new Scanner (System.in);
-        		num2 = Integer.parseInt( entradanum2.nextLine() );
-        		
-        		num3 = num1 - num2;
+        		num3 = numerosOperacion[0] - numerosOperacion[1];
         		
         		System.out.println("La resta  de los numeros es " +  num3  +  " \n");
         		posneg(  num3 );
@@ -75,16 +63,9 @@ public static void main(String[] args) {
         	case 3: 
         		
         		System.out.println("Multiplicacion \n");
+        		numerosOperacion = ingresarnumeros( );
         		
-        		System.out.println("Ingrese el primer numero \n");
-        		entradanum1 = new Scanner (System.in);
-        		num1 = Integer.parseInt( entradanum1.nextLine() );
-        		
-        		System.out.println("Ingrese el segundo numero \n");
-        		entradanum2 = new Scanner (System.in);
-        		num2 = Integer.parseInt( entradanum2.nextLine() );
-        		
-        		num3 = num1 * num2;
+        		num3 = numerosOperacion[0] * numerosOperacion[1];
         		
         		System.out.println("La multiplicacion  de los numeros es " +  num3  +  " \n");
         		posneg(  num3 );
@@ -95,19 +76,12 @@ public static void main(String[] args) {
         	case 4: 
         		
         		System.out.println("Division \n");
+        		numerosOperacion = ingresarnumeros( );
         		
-        		System.out.println("Ingrese el primer numero \n");
-        		entradanum1 = new Scanner (System.in);
-        		num1 = Integer.parseInt( entradanum1.nextLine() );
+        		num3 = numerosOperacion[0] / numerosOperacion[1];
         		
-        		System.out.println("Ingrese el segundo numero \n");
-        		entradanum2 = new Scanner (System.in);
-        		num2 = Integer.parseInt( entradanum2.nextLine() );
-        		
-        		num4 = num1 / num2;
-        		
-        		System.out.println("La division  de los numeros es " +  num4  +  " \n");
-        		posneg(  num4 );
+        		System.out.println("La division  de los numeros es " +  num3  +  " \n");
+        		posneg(  num3 );
         		continuar();
         		
         		break;  
@@ -117,8 +91,6 @@ public static void main(String[] args) {
         		System.out.println("Ten un buen dia \n");
 
         		salir = true; 
-        		
-        		
         		
         		break;  
         		
@@ -131,7 +103,6 @@ public static void main(String[] args) {
         
 	}while(  salir == false);
 	
-    	
         
  }
 	
@@ -146,13 +117,33 @@ public static void main(String[] args) {
 	
 	public static void continuar() {
 		
+		System.out.print("********************************* \n ");
         System.out.print("Presione enter para continuar ");
         Scanner enter = new Scanner(System.in);
         enter.nextLine();
-
+        System.out.print("********************************* \n");
+		
 	}
 	
-
 	
+	@SuppressWarnings("resource")
+	public static float[] ingresarnumeros( ) {
+		
+		float[] numeros = new float[2];
+		
+		
+		Scanner entradanum1, entradanum2;
+		
+		System.out.println("Ingrese el primer numero \n");
+		entradanum1 = new Scanner (System.in);
+		numeros[0] = Integer.parseInt( entradanum1.nextLine() );
+		
+		System.out.println("Ingrese el segundo numero \n");
+		entradanum2 = new Scanner (System.in);
+		numeros[1] = Integer.parseInt( entradanum2.nextLine() );
+		
+		return numeros;
+	
+	}
 	
 }

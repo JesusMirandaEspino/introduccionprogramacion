@@ -5,11 +5,15 @@ import java.util.Scanner;
 public class calc {
 	
 
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {      
     	
-    	Scanner entradaseleccion, entradanum1, entradanum2;
+		
+		float[] numerosOperacion = new float[2];
+		
+    	Scanner entradaseleccion;
     	int seleccion;
-    	float num1, num2, num3, num4;
+    	float num3;
 
         System.out.println("¿Que deseas realizar? \n");
         System.out.println("1.- Suma \n");
@@ -33,15 +37,10 @@ public class calc {
         		
         		System.out.println("Suma \n");
         		
-        		System.out.println("Ingrese el primer numero \n");
-        		entradanum1 = new Scanner (System.in);
-        		num1 = Integer.parseInt( entradanum1.nextLine() );
         		
-        		System.out.println("Ingrese el segundo numero \n");
-        		entradanum2 = new Scanner (System.in);
-        		num2 = Integer.parseInt( entradanum2.nextLine() );
+        		numerosOperacion = ingresarnumeros( );
         		
-        		num3 = num1 + num2;
+        		num3 = numerosOperacion[0] + numerosOperacion[1];
         		
         		System.out.println("La suma de los numeros es " +  num3  +  " \n");
         		posneg(  num3 );
@@ -54,17 +53,12 @@ public class calc {
         		
         		System.out.println("Resta \n");
         		
-        		System.out.println("Ingrese el primer numero \n");
-        		entradanum1 = new Scanner (System.in);
-        		num1 = Integer.parseInt( entradanum1.nextLine() );
+        		numerosOperacion = ingresarnumeros( );
         		
-        		System.out.println("Ingrese el segundo numero \n");
-        		entradanum2 = new Scanner (System.in);
-        		num2 = Integer.parseInt( entradanum2.nextLine() );
-        		
-        		num3 = num1 - num2;
+        		num3 = numerosOperacion[0] - numerosOperacion[1];
         		
         		System.out.println("La resta  de los numeros es " +  num3  +  " \n");
+        		
         		posneg(  num3 );
         		
         		break;  		
@@ -74,15 +68,9 @@ public class calc {
         		
         		System.out.println("Multiplicacion \n");
         		
-        		System.out.println("Ingrese el primer numero \n");
-        		entradanum1 = new Scanner (System.in);
-        		num1 = Integer.parseInt( entradanum1.nextLine() );
+        		numerosOperacion = ingresarnumeros( );
         		
-        		System.out.println("Ingrese el segundo numero \n");
-        		entradanum2 = new Scanner (System.in);
-        		num2 = Integer.parseInt( entradanum2.nextLine() );
-        		
-        		num3 = num1 * num2;
+        		num3 = numerosOperacion[0] * numerosOperacion[1];
         		
         		System.out.println("La multiplicacion  de los numeros es " +  num3  +  " \n");
         		posneg(  num3 );
@@ -93,18 +81,12 @@ public class calc {
         		
         		System.out.println("Division \n");
         		
-        		System.out.println("Ingrese el primer numero \n");
-        		entradanum1 = new Scanner (System.in);
-        		num1 = Integer.parseInt( entradanum1.nextLine() );
+        		numerosOperacion = ingresarnumeros( );
         		
-        		System.out.println("Ingrese el segundo numero \n");
-        		entradanum2 = new Scanner (System.in);
-        		num2 = Integer.parseInt( entradanum2.nextLine() );
+        		num3 = numerosOperacion[0] / numerosOperacion[1];
         		
-        		num4 = num1 / num2;
-        		
-        		System.out.println("La division  de los numeros es " +  num4  +  " \n");
-        		posneg(  num4 );
+        		System.out.println("La division  de los numeros es " +  num3  +  " \n");
+        		posneg(  num3 );
         		
         		break;  
         		
@@ -123,6 +105,31 @@ public class calc {
 			System.out.println("El numero es negativo \n");
 		}
 	}
+	
+
+	
+	
+	@SuppressWarnings("resource")
+	public static float[] ingresarnumeros( ) {
+		
+		float[] numeros = new float[2];
+		
+		
+		Scanner entradanum1, entradanum2;
+		
+		System.out.println("Ingrese el primer numero \n");
+		entradanum1 = new Scanner (System.in);
+		numeros[0] = Integer.parseInt( entradanum1.nextLine() );
+		
+		System.out.println("Ingrese el segundo numero \n");
+		entradanum2 = new Scanner (System.in);
+		numeros[1] = Integer.parseInt( entradanum2.nextLine() );
+		
+		
+		return numeros;
+	
+	}
+	
 	
 
 
